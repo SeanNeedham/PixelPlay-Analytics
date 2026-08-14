@@ -165,35 +165,33 @@ The final Power BI dashboard provides an interactive view of PixelPlay's perform
 
 This page provides a high-level summary of total revenue, orders, customers, average order value and refund rate, supported by trend, category and regional views.
 
-![Executive Overview](images/executive-overview.png)
+![Executive Overview](./images/executive-overview-v2.png)
 
 ### Product & Refund Analysis
 
 This page focuses on product performance, revenue contribution and refund behaviour, helping identify both top-performing products and areas of refund risk.
 
-![Product & Refund Analysis](images/product-refund-analysis.png)
+![Product & Refund Analysis](images/product-refund-analysis-v2.png)
 
 ### Customer Analysis
 
 This page explores customer value, segmentation and behavioural patterns, including revenue per customer, average order value and customer profile metrics.
 
-![Customer Analysis](images/customer-analysis.png)
+![Customer Analysis](images/customer-analysis-v2.png)
 
 ### Marketing & Regional Analysis
 
 This page compares performance across marketing channels, purchase platforms and geographic markets to highlight where revenue is being generated.
 
 
-![Marketing & Regional Analysis](images/marketing-regional-analysis.png)
+![Marketing & Regional Analysis](images/marketing-regional-analysis-v2.png)
 
 
 ### Data Quality Summary
 
 This page provides visibility of excluded records, data-quality controls and recommended actions to support transparent reporting.
 
-![Data Quality Summary](images/data-quality-summary.png)
-
-## Limitations
+![Data Quality Summary](images/data-quality-summary-v2.png)
 
 ## Limitations
 
