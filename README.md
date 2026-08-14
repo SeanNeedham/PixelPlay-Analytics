@@ -165,31 +165,33 @@ The final Power BI dashboard provides an interactive view of PixelPlay's perform
 
 This page provides a high-level summary of total revenue, orders, customers, average order value and refund rate, supported by trend, category and regional views.
 
-![Executive Overview](Images/executive_overview.png)
+![Executive Overview](Images/executive-overview.png)
 
 ### Product & Refund Analysis
 
 This page focuses on product performance, revenue contribution and refund behaviour, helping identify both top-performing products and areas of refund risk.
 
-![Product & Refund Analysis](Images/product_analysis.png)
+![Product & Refund Analysis](Images/product-refund-analysis.png)
 
 ### Customer Analysis
 
 This page explores customer value, segmentation and behavioural patterns, including revenue per customer, average order value and customer profile metrics.
 
-![Customer Analysis](Images/customer_analysis.png)
+![Customer Analysis](Images/customer-analysis.png)
 
 ### Marketing & Regional Analysis
 
 This page compares performance across marketing channels, purchase platforms and geographic markets to highlight where revenue is being generated.
 
-![Marketing & Regional Analysis](Images/Marketing_&_Region.png)
+
+![Marketing & Regional Analysis](Images/marketing-regional-analysis.png)
+
 
 ### Data Quality Summary
 
 This page provides visibility of excluded records, data-quality controls and recommended actions to support transparent reporting.
 
-![Data Quality Summary](Images/data_quality.png)
+![Data Quality Summary](Images/data-quality-summary.png)
 
 ## Limitations
 
@@ -204,7 +206,35 @@ Several limitations should be considered when interpreting the analysis:
 * Refund data identifies where refunds occurred but does not include detailed refund reasons, limiting the ability to determine the underlying causes.
 * The dataset focuses primarily on revenue and transactional performance and does not include detailed cost or profit margin data, so product performance should not be interpreted as profitability.
 
+## Repository Structure
 
 ## Repository Structure
+
+```text
+PixelPlay-Analytics/
+│
+├── README.md
+│
+├── SQL/
+│   ├── 01_data_profiling.sql
+│   ├── 02_data_cleaning.sql
+│   ├── 03_data_validation.sql
+│   ├── 04_star_schema.sql
+│   └── 05_business_analysis.sql
+│
+├── Images/
+│   ├── pixel-play-data-model.png
+│   ├── executive-overview.png
+│   ├── product-refund-analysis.png
+│   ├── customer-analysis.png
+│   ├── marketing-regional-analysis.png
+│   └── data-quality-summary.png
+│
+└── PowerBI/
+    └── PixelPlay_Analytics.pbix
+```
+
+The repository is organised to reflect the full analytical workflow from initial data profiling and cleaning through validation, modelling, business analysis and final Power BI reporting.
+
 
 ## Full Project Documentation
