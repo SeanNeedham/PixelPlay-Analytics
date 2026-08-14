@@ -22,7 +22,7 @@
 
 PixelPlay is a fictional gaming retailer with transactional data covering customers, products, regions, sales and refunds. However, the data is spread across multiple raw datasets and contains inconsistencies and data-quality issues, making it difficult to produce a reliable, consolidated view of business performance. 
 
-Management require a trusted reporting solution that brings this information together and provides clear visibility of revenue, order volumes, customer behaviour, product performance, regional trends and refunds to support more informed commercial decision-making.
+Stakeholders require a trusted reporting solution that brings this information together and provides clear visibility of revenue, order volumes, customer behaviour, product performance, regional trends and refunds to support more informed commercial decision-making.
 
 
 ## Project Objectives
@@ -33,7 +33,7 @@ Management require a trusted reporting solution that brings this information tog
 
 - Analyse revenue, orders, customer behaviour, product performance and refunds to identify meaningful trends.
 
-- Build an interactive Power BI dashboard that enables management to monitor performance across key business areas.
+- Build an interactive Power BI dashboard that enables stakeholders to monitor performance across key business areas.
 
 - Produce clear, evidence-based insights and recommendations to support commercial decision-making.
 
@@ -57,7 +57,7 @@ The project uses four core datasets covering transactional, customer, product an
 
 | Dataset | Description |
 |---|---|
-| Orders | Transaction-level data including purchase dates, product prices, shipping and refund information |
+| Orders | Transactional level data including purchase dates, product prices, shipping and refund information |
 | Customers | Customer attributes including demographics, signup information and email opt-in status |
 | Products | Product details including product names, categories and pricing |
 | Regions | Geographic reference data used to group customers and transactions by market |
@@ -142,7 +142,68 @@ The analysis was structured around six key business questions designed to unders
 
 ## Power BI & DAX
 
+Power BI was used to transform the validated data model into an interactive reporting solution focused on commercial and customer performance.
+
+Key dashboard functionality included:
+
+* KPI reporting for revenue, orders, customers, average order value, revenue per customer and refund rate.
+
+* Month-over-month calculations to monitor changes in key performance indicators.
+* Time-intelligence measures for analysing performance across months and reporting periods.
+* Interactive slicers allowing users to explore performance by customer, product, region and time period.
+* Product and customer segmentation to identify key revenue drivers and behavioural patterns.
+* Conditional formatting and visual cues to highlight performance changes and areas requiring attention.
+* Consistent DAX eligibility logic to ensure only appropriate transactions contributed to revenue, order and refund calculations.
+
+The dashboard was designed to allow stakeholders to move from a high-level performance overview into more detailed customer, product and regional analysis.
+
+## Dashboard
+
+The final Power BI dashboard provides an interactive view of PixelPlay's performance across commercial KPIs, products, customers, regions and data quality controls.
+
+### Executive Overview
+
+This page provides a high-level summary of total revenue, orders, customers, average order value and refund rate, supported by trend, category and regional views.
+
+![Executive Overview](Images/executive_overview.png)
+
+### Product & Refund Analysis
+
+This page focuses on product performance, revenue contribution and refund behaviour, helping identify both top-performing products and areas of refund risk.
+
+![Product & Refund Analysis](Images/product_analysis.png)
+
+### Customer Analysis
+
+This page explores customer value, segmentation and behavioural patterns, including revenue per customer, average order value and customer profile metrics.
+
+![Customer Analysis](Images/customer_analysis.png)
+
+### Marketing & Regional Analysis
+
+This page compares performance across marketing channels, purchase platforms and geographic markets to highlight where revenue is being generated.
+
+![Marketing & Regional Analysis](Images/Marketing_&_Region.png)
+
+### Data Quality Summary
+
+This page provides visibility of excluded records, data-quality controls and recommended actions to support transparent reporting.
+
+![Data Quality Summary](Images/data_quality.png)
+
 ## Limitations
+
+## Limitations
+
+Several limitations should be considered when interpreting the analysis:
+
+
+* Transactions with invalid or missing purchase dates were excluded from time-based analysis where a reliable reporting period could not be established.
+
+* Unknown or unmatched customer and product records were retained where possible, but these records provide less detail for segmentation analysis.
+* Refund data identifies where refunds occurred but does not include detailed refund reasons, limiting the ability to determine the underlying causes.
+* The dataset focuses primarily on revenue and transactional performance and does not include detailed cost or profit margin data, so product performance should not be interpreted as profitability.
+
 
 ## Repository Structure
 
