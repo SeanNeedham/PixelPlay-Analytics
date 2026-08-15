@@ -89,6 +89,8 @@ The raw datasets were profiled and cleaned in SQL Server before being used for a
 
 Rather than automatically deleting records with data-quality issues, transactions were retained where they remained valid for other forms of analysis. Measure-specific rules were then used to exclude unreliable records only from the calculations they could affect.
 
+[View data cleaning scripts →](sql/02_data_cleaning/)
+
 ## Data Quality & Validation
 
 Validation checks were performed in SQL Server after cleaning to confirm that the transformed data was suitable for analysis and reporting.
@@ -105,6 +107,10 @@ Key validation checks included:
 - Reconciled key KPIs between SQL Server and Power BI to ensure consistent reporting logic.
 
 Data-quality flags were retained within the analytical model so that unreliable records could be excluded from specific calculations without unnecessarily removing them from the dataset.
+
+[View post-cleaning validation →](sql/03_post_cleaning_validation.sql)
+
+[View final validation →](sql/06_final_validation.sql)
 
 ## Data Model
 
@@ -124,7 +130,9 @@ This structure reduces duplication, improves reporting consistency and supports 
 ### Star Schema
 
 ![PixelPlay Data Model](images/data_model.png)
-## SQL Analysis
+
+[View star schema SQL →](sql/04_star_schema.sql)
+
 
 ## Business Questions
 
@@ -138,7 +146,7 @@ The analysis was structured around six key business questions designed to unders
 5. Where are refunds concentrated, and which products or customer groups have the highest refund rates?
 6. What trends and patterns can be identified to support future commercial decision-making?
 
-[View supporting SQL analysis →](sql/05_business_analysis.sql)
+[View supporting SQL analysis →](sql/05_business_analysis.sql))
 
 ## Power BI & DAX
 
