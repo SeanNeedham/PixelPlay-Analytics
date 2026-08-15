@@ -4,15 +4,97 @@
 
 ## Executive Summary
 
-*To be completed after final insights are confirmed.*
+PixelPlay Gaming's June 2026 performance weakened across every headline KPI. Revenue fell to £127.3K, down 13.1% month on month, while orders declined 9.6% and customers fell 8.5%. Average order value also decreased 4.1% to £200.23, showing that the decline was driven by both lower transaction volume and reduced spend per order. At the same time, the refund rate increased 1.27 percentage points to 14.7%, adding further pressure to retained revenue.
+
+The wider trend also warrants attention: revenue peaked in February and then declined for four consecutive months through June. Performance is highly concentrated, with Console and Monitor generating 81% of revenue, NA and EMEA contributing 83% of regional revenue, and the Direct channel and Website platform accounting for the largest shares of channel and platform revenue.
 
 ## Key Insights
 
-*To be completed after final analysis is confirmed.*
+### Commercial Performance
+- June revenue declined to £127.3K, down 13.1% month on month, alongside a 9.6% fall in orders and an 8.5% reduction in customers.
+
+- Average order value decreased 4.1% to £200.23, meaning weaker revenue performance reflected both lower order volume and reduced spend per transaction.
+
+- Revenue peaked in February and then declined for four consecutive months through June, suggesting a sustained slowdown rather than a single weak period.
+### Product Concentration & Refund Risk
+- Console (51%) and Monitor (30%) generated 81% of June revenue, with Laptop contributing a further 12.5%.
+- Monitor recorded a 16.2% refund rate, above the overall 14.7% rate, making it particularly important because of its large revenue contribution.
+
+- Audio had the highest category refund rate at 20.8%, indicating that refund risk is not limited to the largest revenue categories.
+### Customer Performance
+- Casual Gamer was the largest customer segment by both volume and revenue in June.
+- Revenue per customer fell 5.0%, reinforcing the wider evidence of weakening customer economics.
+- Platinum loyalty customers recorded the highest average order value, indicating a clear association between higher loyalty tier and stronger spend per order.
+
+- Email opt-in stood at 50.7% and was trending down, reducing the audience available for retention and re-engagement activity.
+### Channel & Regional Performance
+- NA (£68K) and EMEA (£38K) generated 83% of regional revenue, while the US alone contributed approximately £62K.
+- The Direct channel generated £60K and Website purchases generated £97K, highlighting a strong dependency on a narrow set of routes to market.
+
+- LATAM (20.7%) and APAC (17.9%) recorded higher refund rates than NA (14.0%) and EMEA (13.4%), meaning regional growth should be assessed alongside refund performance rather than revenue alone.
 
 ## Business Recommendations
 
-*To be completed after final insights are confirmed.*
+### 1. Product & Merchandising 
+*Prioritise high-value refund reduction*
+
+#### Finding:
+- Audio (20.8%) and Monitor (16.2%) refund rates are above the overall 14.7% rate, while Monitor alone contributes 30% of total revenue.
+
+#### Business Impact:
+- Elevated refunds are eroding retained revenue within commercially important categories, with Monitor presenting the greatest potential exposure because of its revenue weight.
+
+#### Recommendation:
+- Run a root-cause analysis of Audio and Monitor refunds before applying a single corrective action. Review available evidence for product defects, compatibility issues, listing clarity and customer expectations, recognising that the underlying cause may differ by category.
+
+### Expected Impact: 
+- Lower avoidable refund volumes and stronger retained revenue, with the greatest potential revenue protection coming from improvements within Monitor.
+
+### 2. Commercial / Finance  
+*Diagnose the four-month revenue decline*
+
+#### Finding:
+-  Revenue has declined for four consecutive months following the February peak.
+
+#### Business Impact:
+- If the decline continues without its drivers being isolated, PixelPlay faces greater uncertainty around demand, short-term targets and Q3 forecasting.
+
+#### Recommendation:
+- Break the decline down by product category, region, customer segment and purchase platform to determine whether the slowdown is affecting the business more widely or is concentrated in a small number of areas. Use the results to distinguish a wider demand issue from a category- or market-specific problem.
+
+#### Expected Impact:
+- A more accurate diagnosis of the slowdown, enabling a targeted commercial response and more realistic short-term forecasting.
+
+### 3. Customer & CRM 
+*Strengthen retention reach before testing loyalty growth*
+
+#### Finding: 
+- Platinum-tier customers have the highest average order value, while email opt-in is only 50.7% and declining.
+
+#### Business Impact: 
+- PixelPlay has a high-value loyalty segment but a shrinking addressable audience for retention and re-engagement activity.
+
+#### Recommendation: 
+- First review the voluntary email opt-in journey, messaging and customer touchpoints to identify opportunities to improve consent rates. Once reach improves, test targeted loyalty and tier-progression campaigns among suitable Gold and Silver customers rather than assuming that movement to a higher tier will automatically increase spend.
+
+#### Expected Impact: 
+- Greater retention marketing reach and stronger evidence on whether targeted loyalty engagement can increase customer value.
+
+### 4. Marketing & E-commerce
+
+*Reduce concentration risk while protecting revenue quality*
+
+#### Finding: 
+- Direct and Website dominate channel and platform revenue, while LATAM (20.7%) and APAC (17.9%) carry elevated refund rates.
+
+#### Business Impact: 
+- Heavy channel concentration creates dependency risk, while increasing acquisition activity in high-refund regions could grow revenue that is disproportionately offset by returns.
+
+#### Recommendation: 
+- Investigate the causes of elevated refunds in LATAM and APAC before materially expanding acquisition activity in those regions. Separately, test opportunities to diversify acquisition through underrepresented channels such as Paid Search, Social and Affiliate without reducing support for the strongest existing routes to market.
+
+#### Expected Impact: 
+- A more diversified acquisition mix and regional growth that delivers stronger retained revenue rather than being disproportionately eroded by refunds.
 
 ## Business Problem
 
