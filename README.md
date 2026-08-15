@@ -48,7 +48,7 @@ The wider trend also warrants attention: revenue peaked in February and then dec
 - Run a root-cause analysis of Audio and Monitor refunds before applying a single corrective action. Review available evidence for product defects, compatibility issues, listing clarity and customer expectations, recognising that the underlying cause may differ by category.
 
 #### Expected Impact: 
-- A potential reduction in avoidable refunds and stronger retained revenue, with the greatest potential revenue protection coming from improvements within Monitor.
+- A potential reduction in avoidable refunds and stronger retained revenue, with the greatest potential revenue protection coming from improvements within the Monitor product range.
 
 ### 2. Commercial / Finance  
 *Diagnose the four-month revenue decline*
@@ -60,7 +60,8 @@ The wider trend also warrants attention: revenue peaked in February and then dec
 - If the decline continues without its drivers being isolated, PixelPlay faces greater uncertainty around demand, short-term targets and Q3 forecasting.
 
 #### Recommendation:
-- Break the decline down by product category, region, customer segment and purchase platform to determine whether the slowdown is affecting the business more widely or is concentrated in a small number of areas. Use the results to distinguish a wider demand issue from a category- or market-specific problem.
+- Break the decline down by product category, region, customer segment and purchase platform to determine whether the slowdown is affecting the business more widely or is concentrated in a small number of areas. 
+Use the results to distinguish a wider demand issue from a category- or market-specific problem.
 
 #### Expected Impact:
 - A more accurate diagnosis of the slowdown, enabling a targeted commercial response and more realistic short-term forecasting.
