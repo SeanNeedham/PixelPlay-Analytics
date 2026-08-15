@@ -232,6 +232,8 @@ Key functionality included:
 
 The dashboard was designed to allow stakeholders to move from a high-level performance overview into more detailed product, customer, marketing and regional analysis.
 
+[View / download the Power BI report →](PowerBI/PixelPlay_Analytics.pbix)
+
 ## Dashboard
 
 The final Power BI dashboard provides an interactive view of PixelPlay's performance across commercial KPIs, products, customers, marketing channels, regions and data quality.
