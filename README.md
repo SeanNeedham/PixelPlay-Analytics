@@ -275,7 +275,7 @@ The following limitations should be considered when interpreting the analysis:
 - Unmatched or unknown customer records provide less detail for customer segmentation.
 - Refund data identifies where refunds occurred but does not include refund reasons, limiting root-cause analysis.
 - The dataset does not include product costs or profit margins, so revenue performance should not be interpreted as profitability.
-- Marketing spend is not available, so metrics such as customer acquisition cost cannot be calculated.
+- Marketing spend is not available, so customer acquisition cost and return on marketing investment cannot be calculated.
 
 ## Repository Structure
 
@@ -307,7 +307,7 @@ PixelPlay-Analytics/
 │   └── 06_final_validation.sql
 │
 ├── Images/
-│   ├── data-model-v2.png
+│   ├── data-model.png
 │   ├── executive-overview-v2.png
 │   ├── product-refund-analysis-v2.png
 │   ├── customer-analysis-v2.png
