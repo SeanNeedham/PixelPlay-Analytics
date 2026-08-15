@@ -189,7 +189,7 @@ Key checks included:
 
 Data-quality flags were retained in the analytical model so unreliable records could be excluded only from the calculations they affected, rather than removing otherwise usable transactions.
 
-[View post-cleaning validation →](sql/03_data_validation.sql)
+[View post-cleaning validation →](sql/03_post_cleaning_validation.sql)
 
 [View final validation →](sql/06_final_validation.sql)
 
@@ -232,7 +232,7 @@ Key functionality included:
 
 The dashboard was designed to allow stakeholders to move from a high-level performance overview into more detailed product, customer, marketing and regional analysis.
 
-[View / download the Power BI report →](PowerBI/PixelPlay_Analytics.pbix)
+[download the Power BI report →](PowerBI/PixelPlay_Analytics.pbix)
 
 ## Dashboard
 
