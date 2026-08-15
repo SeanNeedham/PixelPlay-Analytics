@@ -47,8 +47,8 @@ The wider trend also warrants attention: revenue peaked in February and then dec
 #### Recommendation:
 - Run a root-cause analysis of Audio and Monitor refunds before applying a single corrective action. Review available evidence for product defects, compatibility issues, listing clarity and customer expectations, recognising that the underlying cause may differ by category.
 
-### Expected Impact: 
-- Lower avoidable refund volumes and stronger retained revenue, with the greatest potential revenue protection coming from improvements within Monitor.
+#### Expected Impact: 
+- A potential reduction in avoidable refunds and stronger retained revenue, with the greatest potential revenue protection coming from improvements within Monitor.
 
 ### 2. Commercial / Finance  
 *Diagnose the four-month revenue decline*
@@ -275,7 +275,7 @@ The following limitations should be considered when interpreting the analysis:
 - Unmatched or unknown customer records provide less detail for customer segmentation.
 - Refund data identifies where refunds occurred but does not include refund reasons, limiting root-cause analysis.
 - The dataset does not include product costs or profit margins, so revenue performance should not be interpreted as profitability.
-- Marketing spend is not available, so metrics such as churn rate and customer acquisition cost cannot be calculated.
+- Marketing spend is not available, so metrics such as customer acquisition cost cannot be calculated.
 
 ## Repository Structure
 
@@ -284,7 +284,7 @@ PixelPlay-Analytics/
 │
 ├── README.md
 │
-├── SQL/
+├── sql/
 │   ├── 01_data_profiling.sql
 │   │
 │   ├── 02_data_cleaning/
@@ -307,7 +307,7 @@ PixelPlay-Analytics/
 │   └── 06_final_validation.sql
 │
 ├── Images/
-│   ├── pixel-play-data-model-v2.png
+│   ├── data-model-v2.png
 │   ├── executive-overview-v2.png
 │   ├── product-refund-analysis-v2.png
 │   ├── customer-analysis-v2.png
