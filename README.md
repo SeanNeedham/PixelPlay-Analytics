@@ -4,7 +4,7 @@
 
 ## Executive Summary
 
-PixelPlay Gaming's June 2026 performance weakened across every headline KPI. Revenue fell to £127.3K, down 13.1% month on month, while orders declined 9.6% and customers fell 8.5%. Average order value also decreased 4.1% to £200.23, showing that the decline was driven by both lower transaction volume and reduced spend per order. At the same time, the refund rate increased 1.27 percentage points to 14.7%, adding further pressure to retained revenue.
+PixelPlay Gaming's June 2026 performance weakened across every headline KPI. Revenue fell to £127.3K, down 13.1% month on month, while orders declined 9.6% and customers fell 8.5%. Average order value also decreased 4.3% to £199.92, showing that the decline was driven by both lower transaction volume and reduced spend per order. At the same time, the refund rate increased 1.27 percentage points to 14.7%, adding further pressure to retained revenue.
 
 The wider trend also warrants attention: revenue peaked in February and then declined for four consecutive months through June. Performance is highly concentrated, with Console and Monitor generating 81% of revenue, NA and EMEA contributing 83% of regional revenue, and the Direct channel and Website platform accounting for the largest shares of channel and platform revenue.
 
@@ -13,7 +13,7 @@ The wider trend also warrants attention: revenue peaked in February and then dec
 ### Commercial Performance
 - June revenue declined to £127.3K, down 13.1% month on month, alongside a 9.6% fall in orders and an 8.5% reduction in customers.
 
-- Average order value decreased 4.1% to £200.23, meaning weaker revenue performance reflected both lower order volume and reduced spend per transaction.
+- Average order value decreased 4.3% to £199.92, meaning weaker revenue performance reflected both lower order volume and reduced spend per transaction.
 
 - Revenue peaked in February and then declined for four consecutive months through June, suggesting a sustained slowdown rather than a single weak period.
 ### Product Concentration & Refund Risk
