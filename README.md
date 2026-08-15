@@ -66,7 +66,7 @@ The project uses four core datasets covering transactional, customer, product an
 |---|---|
 | **Excel** | Initial data inspection and profiling |
 | **SQL Server** | Data cleaning, transformation, validation and business analysis |
-| **Power BI** | Data modelling, dashboard devlopment and interactive reporting |
+| **Power BI** | Data modelling, dashboard development and interactive reporting |
 | **Power Query** | Additional data preparation and transformation |
 | **DAX** | KPI measures, time intelligence and dynamic calculations |
 | **VS Code** | Project file management and documentation |
@@ -93,22 +93,24 @@ Rather than automatically deleting records with data-quality issues, transaction
 
 Validation checks were performed in SQL Server after cleaning to confirm that the transformed data was suitable for analysis and reporting.
 
-Key validation checks included:
+Key checks included:
 
-- Checked for missing or invalid purchase dates.
+- Missing or invalid purchase dates.
 
-- Identified shipping dates occurring before the corresponding purchase date.
-- Identified refund dates occurring before the original purchase.
-- Validated product prices and revenue-eligible transactions.
-- Checked customer, product and regional identifiers for unmatched records.
-- Confirmed duplicate and record counts before and after transformation.
-- Reconciled key KPIs between SQL Server and Power BI to ensure consistent reporting logic.
+- Shipping dates occurring before purchase dates.
+- Refund dates occurring before purchase dates.
+- Invalid or missing product prices.
+- Unmatched customer, product and regional records.
+- Duplicate business keys and transaction row counts.
+- Revenue and date-analysis eligibility flags.
+- KPI reconciliation between SQL Server and Power BI.
 
-Data-quality flags were retained within the analytical model so that unreliable records could be excluded from specific calculations without unnecessarily removing them from the dataset.
+Data-quality flags were retained in the analytical model so unreliable records could be excluded only from the calculations they affected, rather than removing otherwise usable transactions.
 
-[View post-cleaning validation →](sql/03_post_cleaning_validation.sql)
+[View post-cleaning validation →](sql/03_data_validation.sql)
 
 [View final validation →](sql/06_final_validation.sql)
+
 
 ## Data Model
 
@@ -116,87 +118,82 @@ A star schema was created to organise the cleaned data into a structure suitable
 
 The model uses `fact_orders` as the central fact table, supported by dimension tables for customers, products, regions and dates.
 
-- `fact_orders` – transactional order data and analysis flags
-
-- `dim_customer` – customer attributes and segmentation fields
+- `fact_orders` – transactional order data, measures and analysis flags
+- `dim_customer` – customer attributes and segmentation
 - `dim_product` – product and category information
-- `dim_region` – geographic details
-- `dim_date` – calendar attributes used for trend and time-intelligence analysis
+- `dim_region` – geographic information
+- `dim_date` – calendar fields used for trend and time-intelligence analysis
 
-This structure reduces duplication, improves reporting consistency and supports reliable relationships between transactional data and descriptive business dimensions.
+This structure reduces duplication, improves reporting consistency and supports reliable one-to-many relationships between the dimensions and the fact table.
 
 ### Star Schema
 
-![PixelPlay Data Model](images/data_model.png)
+![PixelPlay Data Model](images/data-model.png)
 
-[View star schema SQL →](sql/04_star_schema.sql)
+[View star schema SQL →](sql/04_star_schema/)
 
 
 ## Power BI & DAX
 
-Power BI was used to transform the validated data model into an interactive reporting solution focused on commercial and customer performance.
+Power BI was used to turn the validated data model into an interactive reporting solution focused on commercial, customer and operational performance.
 
-Key dashboard functionality included:
+Key functionality included:
 
-* KPI reporting for revenue, orders, customers, average order value, revenue per customer and refund rate.
+- KPI reporting for revenue, orders, customers, average order value, revenue per customer and refund rate.
 
-* Month-over-month calculations to monitor changes in key performance indicators.
-* Time-intelligence measures for analysing performance across months and reporting periods.
-* Interactive slicers allowing users to explore performance by customer, product, region and time period.
-* Product and customer segmentation to identify key revenue drivers and behavioural patterns.
-* Conditional formatting and visual cues to highlight performance changes and areas requiring attention.
-* Consistent DAX eligibility logic to ensure only appropriate transactions contributed to revenue, order and refund calculations.
+- Month-over-month calculations to monitor changes in key performance indicators.
+- Time-intelligence measures for analysing performance across reporting periods.
+- Interactive slicers for date, region, product category and purchase platform.
+- Customer and product segmentation to identify key revenue drivers and behavioural patterns.
+- Conditional formatting and visual cues to highlight performance changes and areas requiring attention.
+- Consistent DAX eligibility logic so only appropriate transactions contributed to revenue and date-based calculations.
 
-The dashboard was designed to allow stakeholders to move from a high-level performance overview into more detailed customer, product and regional analysis.
+The dashboard was designed to allow stakeholders to move from a high-level performance overview into more detailed product, customer, marketing and regional analysis.
 
 ## Dashboard
 
-The final Power BI dashboard provides an interactive view of PixelPlay's performance across commercial KPIs, products, customers, regions and data quality controls.
+The final Power BI dashboard provides an interactive view of PixelPlay's performance across commercial KPIs, products, customers, marketing channels, regions and data quality.
 
 ### Executive Overview
 
-This page provides a high-level summary of total revenue, orders, customers, average order value and refund rate, supported by trend, category and regional views.
+Provides a high-level view of revenue, orders, customers, average order value and refund rate, supported by trend, product category, regional and customer-segment analysis.
 
-![Executive Overview](./images/executive-overview-v2.png)
+![Executive Overview](images/executive-overview-v2.png)
 
 ### Product & Refund Analysis
 
-This page focuses on product performance, revenue contribution and refund behaviour, helping identify both top-performing products and areas of refund risk.
+Focuses on product performance, revenue contribution and refund behaviour, helping identify strong-performing products and areas of refund risk.
 
 ![Product & Refund Analysis](images/product-refund-analysis-v2.png)
 
 ### Customer Analysis
 
-This page explores customer value, segmentation and behavioural patterns, including revenue per customer, average order value and customer profile metrics.
+Explores customer value, segmentation and behavioural patterns, including revenue per customer, average order value, loyalty tier, age band and email opt-in performance.
 
 ![Customer Analysis](images/customer-analysis-v2.png)
 
 ### Marketing & Regional Analysis
 
-This page compares performance across marketing channels, purchase platforms and geographic markets to highlight where revenue is being generated.
-
+Compares performance across marketing channels, purchase platforms, regions and countries to highlight where revenue and demand are being generated.
 
 ![Marketing & Regional Analysis](images/marketing-regional-analysis-v2.png)
 
-
 ### Data Quality Summary
 
-This page provides visibility of excluded records, data-quality controls and recommended actions to support transparent reporting.
+Provides visibility of excluded records, matching outcomes and data-quality controls used to support reliable reporting.
 
 ![Data Quality Summary](images/data-quality-summary-v2.png)
 
 ## Limitations
 
-Several limitations should be considered when interpreting the analysis:
+The following limitations should be considered when interpreting the analysis:
 
+- Orders with missing or invalid purchase dates could not be included in time-based analysis.
 
-* Transactions with invalid or missing purchase dates were excluded from time-based analysis where a reliable reporting period could not be established.
-
-* Unknown or unmatched customer and product records were retained where possible, but these records provide less detail for segmentation analysis.
-* Refund data identifies where refunds occurred but does not include detailed refund reasons, limiting the ability to determine the underlying causes.
-* The dataset focuses primarily on revenue and transactional performance and does not include detailed cost or profit margin data, so product performance should not be interpreted as profitability.
-
-## Repository Structure
+- Unmatched or unknown customer records provide less detail for customer segmentation.
+- Refund data identifies where refunds occurred but does not include refund reasons, limiting root-cause analysis.
+- The dataset does not include product costs or profit margins, so revenue performance should not be interpreted as profitability.
+- Marketing spend is not available, so metrics such as churn rate and customer acquisition cost cannot be calculated.
 
 ## Repository Structure
 
@@ -205,36 +202,35 @@ PixelPlay-Analytics/
 │
 ├── README.md
 │
-├SQL/
-├── 01_data_profiling.sql
-├── 02_data_cleaning/
-│   ├── clean_region.sql
-│   ├── clean_products.sql
-│   ├── clean_customers.sql
-│   └── clean_orders.sql
-├── 03_data_validation.sql
-├── 04_star_schema/
-│   ├── dim_customer.sql
-│   ├── dim_product.sql
-│   ├── dim_region.sql
-│   ├── dim_date.sql
-│   ├── fact_orders.sql
-├── 05_business_analysis.sql
-└── 06_final_validation.sql
+├── SQL/
+│   ├── 01_data_profiling.sql
+│   │
+│   ├── 02_data_cleaning/
+│   │   ├── clean_region.sql
+│   │   ├── clean_products.sql
+│   │   ├── clean_customers.sql
+│   │   └── clean_orders.sql
+│   │
+│   ├── 03_data_validation.sql
+│   │
+│   ├── 04_star_schema/
+│   │   ├── dim_customer.sql
+│   │   ├── dim_product.sql
+│   │   ├── dim_region.sql
+│   │   ├── dim_date.sql
+│   │   ├── fact_orders.sql
+│   │   └── relationships.sql
+│   │
+│   ├── 05_business_analysis.sql
+│   └── 06_final_validation.sql
 │
 ├── Images/
-│   ├── pixel-play-data-model.png
-│   ├── executive-overview.png
-│   ├── product-refund-analysis.png
-│   ├── customer-analysis.png
-│   ├── marketing-regional-analysis.png
-│   └── data-quality-summary.png
+│   ├── pixel-play-data-model-v2.png
+│   ├── executive-overview-v2.png
+│   ├── product-refund-analysis-v2.png
+│   ├── customer-analysis-v2.png
+│   ├── marketing-regional-analysis-v2.png
+│   └── data-quality-summary-v2.png
 │
 └── PowerBI/
     └── PixelPlay_Analytics.pbix
-```
-
-The repository is organised to reflect the full analytical workflow from initial data profiling and cleaning through validation, modelling, business analysis and final Power BI reporting.
-
-
-## Full Project Documentation
