@@ -14,10 +14,6 @@
 
 *To be completed after final insights are confirmed.*
 
-## Dashboard
-
-*Dashboard screenshots will be added here.*
-
 ## Business Problem
 
 PixelPlay is a fictional gaming retailer with transactional data covering customers, products, regions, sales and refunds. However, the data is spread across multiple raw datasets and contains inconsistencies and data-quality issues, making it difficult to produce a reliable, consolidated view of business performance. 
@@ -50,6 +46,8 @@ Stakeholders require a trusted reporting solution that brings this information t
 - Where are refunds concentrated, and which products or customer groups have the highest refund rates?
 
 - What trends and patterns can be identified to support future decision-making?
+
+[View supporting SQL analysis →](sql/05_business_analysis.sql)
 
 ## Dataset
 
@@ -134,20 +132,6 @@ This structure reduces duplication, improves reporting consistency and supports 
 [View star schema SQL →](sql/04_star_schema.sql)
 
 
-## Business Questions
-
-The analysis was structured around six key business questions designed to understand PixelPlay's commercial performance and identify opportunities for improvement.
-
-1. How are revenue and order volumes performing over time?
-
-2. Which products and product categories generate the most revenue and orders?
-3. Which customer segments contribute the greatest value to the business?
-4. How does performance vary across regions and markets?
-5. Where are refunds concentrated, and which products or customer groups have the highest refund rates?
-6. What trends and patterns can be identified to support future commercial decision-making?
-
-[View supporting SQL analysis →](sql/05_business_analysis.sql))
-
 ## Power BI & DAX
 
 Power BI was used to transform the validated data model into an interactive reporting solution focused on commercial and customer performance.
@@ -221,12 +205,22 @@ PixelPlay-Analytics/
 │
 ├── README.md
 │
-├── SQL/
-│   ├── 01_data_profiling.sql
-│   ├── 02_data_cleaning.sql
-│   ├── 03_data_validation.sql
-│   ├── 04_star_schema.sql
-│   └── 05_business_analysis.sql
+├SQL/
+├── 01_data_profiling.sql
+├── 02_data_cleaning/
+│   ├── clean_region.sql
+│   ├── clean_products.sql
+│   ├── clean_customers.sql
+│   └── clean_orders.sql
+├── 03_data_validation.sql
+├── 04_star_schema/
+│   ├── dim_customer.sql
+│   ├── dim_product.sql
+│   ├── dim_region.sql
+│   ├── dim_date.sql
+│   ├── fact_orders.sql
+├── 05_business_analysis.sql
+└── 06_final_validation.sql
 │
 ├── Images/
 │   ├── pixel-play-data-model.png
