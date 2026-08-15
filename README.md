@@ -301,7 +301,7 @@ PixelPlay-Analytics/
 │   │   ├── dim_region.sql
 │   │   ├── dim_date.sql
 │   │   ├── fact_orders.sql
-│   │   └── relationships.sql
+│   │   
 │   │
 │   ├── 05_business_analysis.sql
 │   └── 06_final_validation.sql
