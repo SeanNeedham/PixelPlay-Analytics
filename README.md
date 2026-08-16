@@ -2,6 +2,13 @@
 
 > End-to-end data analytics project using SQL Server and Power BI to analyse sales performance, customer behaviour, product performance, regional trends and refunds.
 
+## Business Problem
+
+PixelPlay is a fictional gaming retailer with transactional data covering customers, products, regions, sales and refunds. However, the data is spread across multiple raw datasets and contains inconsistencies and data-quality issues, making it difficult to produce a reliable, consolidated view of business performance. 
+
+Stakeholders require a trusted reporting solution that brings this information together and provides clear visibility of revenue, order volumes, customer behaviour, product performance, regional trends and refunds to support more informed commercial decision-making.
+
+
 ## Executive Summary
 
 PixelPlay Gaming's June 2026 performance weakened across every headline KPI. Revenue fell to £127.3K, down 13.1% month on month, while orders declined 9.6% and customers fell 8.5%. Average order value also decreased 4.3% to £199.92, showing that the decline was driven by both lower transaction volume and reduced spend per order. At the same time, the refund rate increased 1.27 percentage points to 14.7%, adding further pressure to retained revenue.
@@ -96,13 +103,6 @@ Use the results to distinguish a wider demand issue from a category- or market-s
 
 #### Expected Impact: 
 - A more diversified acquisition mix and regional growth that delivers stronger retained revenue rather than being disproportionately eroded by refunds.
-
-## Business Problem
-
-PixelPlay is a fictional gaming retailer with transactional data covering customers, products, regions, sales and refunds. However, the data is spread across multiple raw datasets and contains inconsistencies and data-quality issues, making it difficult to produce a reliable, consolidated view of business performance. 
-
-Stakeholders require a trusted reporting solution that brings this information together and provides clear visibility of revenue, order volumes, customer behaviour, product performance, regional trends and refunds to support more informed commercial decision-making.
-
 
 ## Project Objectives
 
