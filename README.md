@@ -4,9 +4,29 @@
 
 ## Business Problem
 
-PixelPlay is a fictional gaming retailer with transactional data covering customers, products, regions, sales and refunds. However, the data is spread across multiple raw datasets and contains inconsistencies and data-quality issues, making it difficult to produce a reliable, consolidated view of business performance. 
+PixelPlay is a fictional gaming retailer with separate datasets covering orders, customers, products and regions. Inconsistent identifiers, missing values, invalid dates and classification issues made it difficult to create a reliable, consolidated view of business performance.
 
-Stakeholders require a trusted reporting solution that brings this information together and provides clear visibility of revenue, order volumes, customer behaviour, product performance, regional trends and refunds to support more informed commercial decision-making.
+Stakeholders needed a trusted reporting solution that brought the data together and provided clear visibility of revenue, order volumes, customer behaviour, product performance, regional trends and refunds.
+
+## Project Objective
+
+The objective was to clean and validate PixelPlay’s raw datasets, consolidate the transactional, customer, product and regional data into a reliable reporting model, and build an interactive Power BI dashboard. The analysis focused on revenue, orders, customer value, product performance, regional trends and refund risk, with the findings translated into evidence-based recommendations.
+
+## Business Questions
+
+- How are revenue and order volumes performing over time?
+
+- Which products and product categories generate the most revenue and orders?
+
+- Which customer segments contribute the greatest value to the business?
+
+- How does performance vary across regions and markets?
+
+- Where are refunds concentrated, and which products or customer groups have the highest refund rates?
+
+- What trends and patterns can be identified to support future decision-making?
+
+[View supporting SQL analysis →](sql/05_business_analysis.sql)
 
 
 ## Executive Summary
@@ -30,13 +50,15 @@ The wider trend also warrants attention: revenue peaked in February and then dec
 - Audio had the highest category refund rate at 20.8%, indicating that refund risk is not limited to the largest revenue categories.
 ### Customer Performance
 - Casual Gamer was the largest customer segment by both volume and revenue in June.
-- Revenue per customer fell 5.0%, reinforcing the wider evidence of weakening customer economics.
+- Revenue per customer fell 5.0%, showing that average customer value also weakened during June.
 - Platinum loyalty customers recorded the highest average order value, indicating a clear association between higher loyalty tier and stronger spend per order.
 
-- Email opt-in stood at 50.7% and was trending down, reducing the audience available for retention and re-engagement activity.
+Email opt-in stood at 50.7% and decreased by 0.82 percentage points from May, reducing the audience available for retention and re-engagement activity.
+
 ### Channel & Regional Performance
+
 - NA (£68K) and EMEA (£38K) generated 83% of regional revenue, while the US alone contributed approximately £62K.
-- The Direct channel generated £60K and Website purchases generated £97K, highlighting a strong dependency on a narrow set of routes to market.
+- The Direct channel generated £60K, while Website purchases generated £97K, showing PixelPlay’s reliance on these two routes to market.
 
 - LATAM (20.7%) and APAC (17.9%) recorded higher refund rates than NA (14.0%) and EMEA (13.4%), meaning regional growth should be assessed alongside refund performance rather than revenue alone.
 
@@ -90,7 +112,7 @@ Use the results to distinguish a wider demand issue from a category- or market-s
 
 ### 4. Marketing & E-commerce
 
-*Reduce concentration risk while protecting revenue quality*
+*Reduce channel reliance while monitoring refund risk*
 
 #### Finding: 
 - Direct and Website dominate channel and platform revenue, while LATAM (20.7%) and APAC (17.9%) carry elevated refund rates.
@@ -104,41 +126,13 @@ Use the results to distinguish a wider demand issue from a category- or market-s
 #### Expected Impact: 
 - A more diversified acquisition mix and regional growth that delivers stronger retained revenue rather than being disproportionately eroded by refunds.
 
-## Project Objectives
-
-- Clean and validate the raw datasets to create a reliable reporting foundation.
-
-- Consolidate customer, product, regional and transactional data into a structured reporting model.
-
-- Analyse revenue, orders, customer behaviour, product performance and refunds to identify meaningful trends.
-
-- Build an interactive Power BI dashboard that enables stakeholders to monitor performance across key business areas.
-
-- Produce clear, evidence-based insights and recommendations to support commercial decision-making.
-
-## Business Questions
-
-- How are revenue and order volumes performing over time?
-
-- Which products and product categories generate the most revenue and orders?
-
-- Which customer segments contribute the greatest value to the business?
-
-- How does performance vary across regions and markets?
-
-- Where are refunds concentrated, and which products or customer groups have the highest refund rates?
-
-- What trends and patterns can be identified to support future decision-making?
-
-[View supporting SQL analysis →](sql/05_business_analysis.sql)
-
 ## Dataset
 
 The project uses four core datasets covering transactional, customer, product and regional information.
 
 | Dataset | Description |
 |---|---|
-| Orders | Transactional level data including purchase dates, product prices, shipping and refund information |
+| Orders | Transaction-level data including purchase dates, product prices, shipping and refund information |
 | Customers | Customer attributes including demographics, signup information and email opt-in status |
 | Products | Product details including product names, categories and pricing |
 | Regions | Geographic reference data used to group customers and transactions by market |
@@ -150,7 +144,6 @@ The project uses four core datasets covering transactional, customer, product an
 | **Excel** | Initial data inspection and profiling |
 | **SQL Server** | Data cleaning, transformation, validation and business analysis |
 | **Power BI** | Data modelling, dashboard development and interactive reporting |
-| **Power Query** | Additional data preparation and transformation |
 | **DAX** | KPI measures, time intelligence and dynamic calculations |
 | **VS Code** | Project file management and documentation |
 | **Git & GitHub** | Version control and project portfolio hosting |
@@ -309,12 +302,12 @@ PixelPlay-Analytics/
 │   ├── 05_business_analysis.sql
 │   └── 06_final_validation.sql
 │
-├── Images/
+├── images/
 │   ├── data-model.png
 │   ├── executive-overview-v2.png
 │   ├── product-refund-analysis-v2.png
 │   ├── customer-analysis-v2.png
-│   ├── marketing-regional-analysis-v2.png
+│   ├──marketing-regional-analysis-v2.png
 │   └── data-quality-summary-v2.png
 │
 └── PowerBI/
