@@ -137,6 +137,7 @@ The project uses four core datasets covering transactional, customer, product an
 | Products | Product details including product names, categories and pricing |
 | Regions | Geographic reference data used to group customers and transactions by market |
 
+The original simulated source files are available in the data/raw folder. These files were retained unchanged, while all cleaning, validation and modelling logic is documented in the sql folder. Cleaned table exports were not duplicated because they can be recreated from the SQL scripts.
 ## Tools & Technologies
 
 | Tool | Use in Project |
@@ -273,15 +274,32 @@ The following limitations should be considered when interpreting the analysis:
 - The dataset does not include product costs or profit margins, so revenue performance should not be interpreted as profitability.
 - Marketing spend is not available, so customer acquisition cost and return on marketing investment cannot be calculated.
 
+## Repository 
+
+The complete Markdown should look like this:
+
+````markdown
 ## Repository Structure
 
 ```text
 PixelPlay-Analytics/
 │
+├── .gitattributes
 ├── README.md
+│
+├── data/
+│   ├── README.md
+│   └── raw/
+│       ├── orders.csv
+│       ├── customers.csv
+│       ├── products.csv
+│       └── region.csv
 │
 ├── sql/
 │   ├── 01_data_profiling.sql
+│   ├── 03_data_validation.sql
+│   ├── 05_business_analysis.sql
+│   ├── 06_final_validation.sql
 │   │
 │   ├── 02_data_cleaning/
 │   │   ├── clean_region.sql
@@ -289,25 +307,19 @@ PixelPlay-Analytics/
 │   │   ├── clean_customers.sql
 │   │   └── clean_orders.sql
 │   │
-│   ├── 03_data_validation.sql
-│   │
-│   ├── 04_star_schema/
-│   │   ├── dim_customer.sql
-│   │   ├── dim_product.sql
-│   │   ├── dim_region.sql
-│   │   ├── dim_date.sql
-│   │   ├── fact_orders.sql
-│   │   
-│   │
-│   ├── 05_business_analysis.sql
-│   └── 06_final_validation.sql
+│   └── 04_star_schema/
+│       ├── dim_customer.sql
+│       ├── dim_product.sql
+│       ├── dim_region.sql
+│       ├── dim_date.sql
+│       └── fact_orders.sql
 │
 ├── images/
 │   ├── data-model.png
 │   ├── executive-overview-v2.png
 │   ├── product-refund-analysis-v2.png
 │   ├── customer-analysis-v2.png
-│   ├──marketing-regional-analysis-v2.png
+│   ├── marketing-regional-analysis-v2.png
 │   └── data-quality-summary-v2.png
 │
 └── PowerBI/
