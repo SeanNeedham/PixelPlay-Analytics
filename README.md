@@ -71,13 +71,13 @@ Email opt-in stood at 50.7% and decreased by 0.82 percentage points from May, re
 - Audio (20.8%) and Monitor (16.2%) refund rates are above the overall 14.7% rate, while Monitor alone contributes 30% of total revenue.
 
 #### Business Impact:
-- High refund rates are reducing retained revenue, particularly for monitor because it accounts for 30% of total revenue.
+- High refund rates are reducing retained revenue, particularly for Monitor because it accounts for 30% of total revenue.
 
 #### Recommendation:
 - Investigate the reasons behind Audio and Monitor refunds before deciding on any corrective action. Review available evidence for product defects, compatibility issues, listing clarity and customer expectations, recognising that the underlying cause may differ by category.
 
 #### Expected Impact: 
-- Reducing avoidable refunds could help protect revenue, particularly within the Monitor product range
+- Reducing avoidable refunds could help protect revenue, particularly within the Monitor product range.
 ### 2. Commercial / Finance  
 *Diagnose the four-month revenue decline*
 
@@ -107,7 +107,7 @@ Use the results to distinguish a wider demand issue from a category- or market-s
 - First review the voluntary email opt-in journey, messaging and customer touchpoints to identify opportunities to improve consent rates. Once reach improves, test targeted loyalty and tier-progression campaigns among suitable Gold and Silver customers rather than assuming that movement to a higher tier will automatically increase spend.
 
 #### Expected Impact: 
-- PixelPlay has a valuable loyalty segment, but the number of customers available for email retention activity is falling.
+- This could increase the number of customers reached by retention campaigns and show whether loyalty activity improves customer value.
 
 ### 4. Marketing & E-commerce
 
@@ -120,7 +120,7 @@ Use the results to distinguish a wider demand issue from a category- or market-s
 - Relying heavily on a small number of channels creates risk, while growth in high-refund regions could be offset by more returns.
 
 #### Recommendation: 
--Investigate why refund rates are higher in LATAM and APAC before increasing acquisition activity in those regions. 
+- Investigate why refund rates are higher in LATAM and APAC before increasing acquisition activity in those regions. 
 - Separately, test opportunities to diversify acquisition through underrepresented channels such as Paid Search, Social and Affiliate without reducing support for the strongest existing routes to market.
 
 #### Expected Impact: 
@@ -218,7 +218,7 @@ Key functionality included:
 
 - KPI reporting for revenue, orders, customers, average order value, revenue per customer and refund rate.
 
-- Month-over-month calculations to monitor changes in key performance indicators.
+- Month on month calculations to monitor changes in key performance indicators.
 - Time-intelligence measures for analysing performance across reporting periods.
 - Interactive slicers for date, region, product category and purchase platform.
 - Customer and product segmentation to identify key revenue drivers and behavioural patterns.
@@ -267,7 +267,7 @@ Provides visibility of excluded records, matching outcomes and data-quality cont
 
 The following limitations should be considered when interpreting the analysis:
 
--The dashboard supports performance monitoring, comparison and identifying areas for further investigation. However, the available data cannot establish the causes of the revenue decline or refunds, assess product profitability, or evaluate marketing efficiency. Recommendations are therefore presented as areas to investigate or test rather than guaranteed outcomes.
+The dashboard supports performance monitoring, comparison and identifying areas for further investigation. However, the available data cannot establish the causes of the revenue decline or refunds, assess product profitability, or evaluate marketing efficiency. Recommendations are therefore presented as areas to investigate or test rather than guaranteed outcomes.
 
 - Orders with missing or invalid purchase dates could not be included in time-based analysis.
 
@@ -322,3 +322,4 @@ PixelPlay-Analytics/
 │
 └── PowerBI/
     └── PixelPlay_Analytics.pbix
+    ```
