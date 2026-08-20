@@ -274,11 +274,7 @@ The following limitations should be considered when interpreting the analysis:
 - The dataset does not include product costs or profit margins, so revenue performance should not be interpreted as profitability.
 - Marketing spend is not available, so customer acquisition cost and return on marketing investment cannot be calculated.
 
-## Repository 
 
-The complete Markdown should look like this:
-
-````markdown
 ## Repository Structure
 
 ```text
