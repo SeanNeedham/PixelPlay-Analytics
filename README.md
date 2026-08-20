@@ -10,7 +10,7 @@ Stakeholders needed a trusted reporting solution that brought the data together 
 
 ## Project Objective
 
-The objective was to clean and validate PixelPlay’s raw datasets, consolidate the transactional, customer, product and regional data into a reliable reporting model, and build an interactive Power BI dashboard. The analysis focused on revenue, orders, customer value, product performance, regional trends and refund risk, with the findings translated into evidence-based recommendations.
+The objective was to clean and validate PixelPlay’s raw datasets, consolidate the transactional, customer, product and regional data into a reliable reporting model, and build an interactive Power BI dashboard. The analysis focused on revenue, orders, customer value, product performance, regional trends and refund risk, with the findings used to develop practical business recommendations.
 
 ## Business Questions
 
@@ -71,14 +71,13 @@ Email opt-in stood at 50.7% and decreased by 0.82 percentage points from May, re
 - Audio (20.8%) and Monitor (16.2%) refund rates are above the overall 14.7% rate, while Monitor alone contributes 30% of total revenue.
 
 #### Business Impact:
-- Elevated refunds are eroding retained revenue within commercially important categories, with Monitor presenting the greatest potential exposure because of its revenue weight.
+- High refund rates are reducing retained revenue, particularly for monitor because it accounts for 30% of total revenue.
 
 #### Recommendation:
-- Run a root-cause analysis of Audio and Monitor refunds before applying a single corrective action. Review available evidence for product defects, compatibility issues, listing clarity and customer expectations, recognising that the underlying cause may differ by category.
+- Investigate the reasons behind Audio and Monitor refunds before deciding on any corrective action. Review available evidence for product defects, compatibility issues, listing clarity and customer expectations, recognising that the underlying cause may differ by category.
 
 #### Expected Impact: 
-- A potential reduction in avoidable refunds and stronger retained revenue, with the greatest potential revenue protection coming from improvements within the Monitor product range.
-
+- Reducing avoidable refunds could help protect revenue, particularly within the Monitor product range
 ### 2. Commercial / Finance  
 *Diagnose the four-month revenue decline*
 
@@ -86,14 +85,14 @@ Email opt-in stood at 50.7% and decreased by 0.82 percentage points from May, re
 -  Revenue has declined for four consecutive months following the February peak.
 
 #### Business Impact:
-- If the decline continues without its drivers being isolated, PixelPlay faces greater uncertainty around demand, short-term targets and Q3 forecasting.
+- If the decline continues, PixelPlay may find it harder to understand demand and set realistic short-term targets.
 
 #### Recommendation:
 - Break the decline down by product category, region, customer segment and purchase platform to determine whether the slowdown is affecting the business more widely or is concentrated in a small number of areas. 
 Use the results to distinguish a wider demand issue from a category- or market-specific problem.
 
 #### Expected Impact:
-- A more accurate diagnosis of the slowdown, enabling a targeted commercial response and more realistic short-term forecasting.
+- This would help identify the main cause of the slowdown and support more targeted actions and realistic forecasts.
 
 ### 3. Customer & CRM 
 *Strengthen retention reach before testing loyalty growth*
@@ -102,13 +101,13 @@ Use the results to distinguish a wider demand issue from a category- or market-s
 - Platinum-tier customers have the highest average order value, while email opt-in is only 50.7% and declining.
 
 #### Business Impact: 
-- PixelPlay has a high-value loyalty segment but a shrinking addressable audience for retention and re-engagement activity.
+- PixelPlay has a valuable loyalty segment, but the number of customers available for email retention activity is falling.
 
 #### Recommendation: 
 - First review the voluntary email opt-in journey, messaging and customer touchpoints to identify opportunities to improve consent rates. Once reach improves, test targeted loyalty and tier-progression campaigns among suitable Gold and Silver customers rather than assuming that movement to a higher tier will automatically increase spend.
 
 #### Expected Impact: 
-- Greater retention marketing reach and stronger evidence on whether targeted loyalty engagement can increase customer value.
+- PixelPlay has a valuable loyalty segment, but the number of customers available for email retention activity is falling.
 
 ### 4. Marketing & E-commerce
 
@@ -118,13 +117,14 @@ Use the results to distinguish a wider demand issue from a category- or market-s
 - Direct and Website dominate channel and platform revenue, while LATAM (20.7%) and APAC (17.9%) carry elevated refund rates.
 
 #### Business Impact: 
-- Heavy channel concentration creates dependency risk, while increasing acquisition activity in high-refund regions could grow revenue that is disproportionately offset by returns.
+- Relying heavily on a small number of channels creates risk, while growth in high-refund regions could be offset by more returns.
 
 #### Recommendation: 
-- Investigate the causes of elevated refunds in LATAM and APAC before materially expanding acquisition activity in those regions. Separately, test opportunities to diversify acquisition through underrepresented channels such as Paid Search, Social and Affiliate without reducing support for the strongest existing routes to market.
+-Investigate why refund rates are higher in LATAM and APAC before increasing acquisition activity in those regions. 
+- Separately, test opportunities to diversify acquisition through underrepresented channels such as Paid Search, Social and Affiliate without reducing support for the strongest existing routes to market.
 
 #### Expected Impact: 
-- A more diversified acquisition mix and regional growth that delivers stronger retained revenue rather than being disproportionately eroded by refunds.
+- This could create a more balanced channel mix and support regional growth without refunds reducing too much of the revenue gained.
 
 ## Dataset
 
@@ -266,6 +266,8 @@ Provides visibility of excluded records, matching outcomes and data-quality cont
 ## Limitations
 
 The following limitations should be considered when interpreting the analysis:
+
+-The dashboard supports performance monitoring, comparison and identifying areas for further investigation. However, the available data cannot establish the causes of the revenue decline or refunds, assess product profitability, or evaluate marketing efficiency. Recommendations are therefore presented as areas to investigate or test rather than guaranteed outcomes.
 
 - Orders with missing or invalid purchase dates could not be included in time-based analysis.
 
