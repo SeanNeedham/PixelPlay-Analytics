@@ -4,11 +4,10 @@ region data cleaning
 
 clean and standardise region data before modelling
 */
--- clean country code
+-- standardise country codes and region mapping
 SELECT DISTINCT CASE WHEN COUNTRY_CODE IS NULL
                           OR TRIM(COUNTRY_CODE) = ''
                           OR UPPER(TRIM(COUNTRY_CODE)) IN ('ZZ', 'UNKNOWN', 'N/A') THEN 'UNKNOWN' ELSE UPPER(TRIM(COUNTRY_CODE)) END AS country_code,
-                -- fix unknown regions using country code
                 CASE WHEN (REGION IS NULL
                            OR TRIM(REGION) = ''
                            OR UPPER(TRIM(REGION)) IN ('X.X', 'X.X.', 'UNKNOWN', 'UNKNOWN REGION', 'N/A'))
