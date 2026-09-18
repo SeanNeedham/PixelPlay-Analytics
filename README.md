@@ -1,201 +1,123 @@
 # PixelPlay Sales & Customer Analytics
 
-**SQL Server | Power BI | DAX | Star schema | Revenue, customer, product, regional and refund analysis**
+SQL Server | Power BI | DAX | Star schema | Revenue, customer, product, regional and refund analysis
 
-An end-to-end analytics build: raw, unreliable retail data cleaned and modelled in SQL Server, then delivered as an interactive Power BI reporting solution.
+An end-to-end retail analytics project that turns fragmented, unreliable source data into a validated SQL Server model and interactive Power BI report.
 
----
+## Project Background
+
+PixelPlay is a simulated gaming hardware retailer selling across international markets. Its orders, customers, products and regional reference data were stored separately and contained inconsistent identifiers, missing values, invalid dates and classification errors. Commercial and operations stakeholders needed a dependable view of sales performance, customer value and refund exposure before deciding where to investigate or act.
+
+Intended stakeholders: Commercial and sales leaders, product and merchandising teams, customer/CRM teams, and regional operations managers.
+
+Decision context: Understand the sustained revenue decline, identify where sales and refunds are concentrated, and prioritise investigations and measurable tests. Revenue is the primary performance measure; orders, customers, average order value (AOV), revenue per customer, refund rate and email opt-in provide context.
+
+## Business Questions
+
+1. How are revenue, order volume, customer count and spend per order changing over time?
+2. Which product categories, regions and sales routes contribute most to revenue, and where is concentration risk greatest?
+3. Which categories and regions have the highest refund rates, and how do those rates compare with their revenue contribution?
+4. Which customer segments and loyalty tiers generate the most value, and how much of the customer base is reachable through email?
+5. Which data-quality issues affect each measure, and can SQL Server and Power BI produce consistent KPIs?
+
+## Data Structure & Initial Checks
+
+The project uses four simulated source datasets. Original files are retained unchanged in `data/raw`; cleaning and modelling logic is reproducible from `sql/` rather than duplicated as cleaned exports.
+
+| Dataset | Role |
+|---|---|
+| Orders | Transactions, purchase dates, product prices, shipping and refunds |
+| Customers | Demographics, signup information and email opt-in status |
+| Products | Product names, categories and pricing |
+| Regions | Geographic reference data for market reporting |
+
+The reporting model centres on `fact_orders`, with `dim_customer`, `dim_product`, `dim_region` and `dim_date`. Initial profiling and later validation checked date sequences, prices, identifier matching, classifications, duplicate business keys, row counts and measure eligibility. Problem records were flagged and retained where they could still support other analyses; each KPI excludes only records that would make that particular measure unreliable. SQL Server and Power BI KPIs were reconciled, with DAX eligibility rules aligned to the SQL rules.
+
+![PixelPlay data model](images/data-model.png)
 
 ## Executive Summary
 
-### The Problem
+- Performance: Revenue peaked in February and declined for four consecutive months through June. June revenue was £127.3K, down 13.1% month on month; orders fell 9.6%, customers 8.5%, and AOV 4.3% to £199.92. The simultaneous declines in volume and order value warrant a breakdown by category, region and customer segment.
+- Refund exposure: The overall refund rate rose 1.27 percentage points to 14.7% in June. Monitor generated 30% of revenue with a 16.2% refund rate, while Audio had the highest category refund rate at 20.8%. Both deserve investigation for different reasons.
+- Concentration: Console (51%) and Monitor (30%) generated 81% of June revenue. NA and EMEA generated 83% of regional revenue. Changes in a small number of categories and markets therefore matter greatly.
 
-PixelPlay held orders, customers, products and regional data in separate datasets riddled with inconsistent identifiers, missing values, invalid dates and classification errors. No consolidated, trustworthy view of business performance existed — so stakeholders could not see revenue, customer value, product performance or refund risk with any confidence.
+## Insights Deep Dive
 
-### The Solution
+### Sales trend and customer value
 
-Clean and validate in SQL Server, model as a star schema, report in Power BI.
+June's £127.3K revenue followed four consecutive monthly declines from the February peak. The 9.6% drop in orders and 8.5% drop in customers coincided with a 4.3% fall in AOV to £199.92. Revenue per customer fell 5.0%. These movements show pressure on both transaction volume and spend, but the dashboard alone does not establish why they occurred.
 
-- Records with data-quality issues were **flagged rather than deleted**, then excluded only from the specific measures they could distort.
-- A **`fact_orders` star schema** with five dimensions replaced the fragmented source tables.
-- **DAX eligibility logic mirrored the SQL rules**, and KPIs were reconciled between SQL Server and Power BI so both layers agree.
-
-### The Impact
-
-- Exposed a **four-month revenue decline** running from the February peak through June.
-- Quantified June's deterioration across every headline KPI: **revenue −13.1%**, **orders −9.6%**, **customers −8.5%**, **AOV −4.3%**.
-- Identified refund risk sitting in two distinct places — the **largest** revenue category and the **highest-rate** one.
-- Revealed heavy concentration risk: **81%** of revenue in two product categories, **83%** in two regions.
-
----
-
-## Key Operational Insights
-
-### June weakened across every headline KPI
-Revenue fell to **£127.3K**, down **13.1%** month on month. Orders dropped **9.6%**, customers **8.5%**, and AOV **4.3%** to **£199.92**. Volume and spend per order fell together — which is why AOV was analysed alongside revenue rather than in isolation. Refund rate rose **1.27 percentage points to 14.7%**, compounding the pressure on retained revenue.
-
-### The decline is sustained, not a single bad month
-Revenue peaked in **February** and then fell for **four consecutive months** through June.
-
-### Refund risk sits in two different places
-**Monitor** recorded a **16.2%** refund rate against the **14.7%** overall — significant because Monitor generates **30%** of revenue. **Audio** carried the highest category rate at **20.8%**. Ranking by rate alone would have missed Monitor; ranking by revenue alone would have missed Audio.
-
-### Revenue is heavily concentrated
-**Console (51%)** and **Monitor (30%)** produced **81%** of June revenue, with Laptop adding **12.5%**.
-
-### Customer value is falling, and reach is narrowing
-**Casual Gamer** was the largest segment by both volume and revenue. Revenue per customer fell **5.0%**. **Platinum** loyalty customers recorded the highest AOV. Email opt-in stood at **50.7%**, down **0.82 percentage points** from May — shrinking the audience available for retention activity.
-
-### Regional growth and refund risk do not align
-**NA (£68K)** and **EMEA (£38K)** delivered **83%** of regional revenue, with the **US** alone at approximately **£62K**. But **LATAM (20.7%)** and **APAC (17.9%)** carried far higher refund rates than **NA (14.0%)** and **EMEA (13.4%)** — so regions cannot be assessed on revenue alone. The **Direct** channel generated **£60K** and the **Website** platform **£97K**.
-
-## Dashboard Views
-
-### Executive Overview
-Revenue, orders, customers, AOV and refund rate with trend, category, regional and segment analysis.
+Casual Gamer was the largest customer segment by volume and revenue. Platinum customers had the highest AOV. Email opt-in was 50.7%, down 0.82 percentage points from May, limiting the audience available for consent-based retention activity.
 
 ![PixelPlay Executive Overview dashboard](images/executive-overview-v2.png)
 
-### Product & Refund Analysis
-Product performance, revenue contribution, refund behaviour.
+![PixelPlay Customer Analysis dashboard](images/customer-analysis-v2.png)
+
+### Product mix and refund exposure
+
+Console (51%) and Monitor (30%) accounted for 81% of June revenue; Laptop added 12.5%. The overall refund rate reached 14.7%, up 1.27 percentage points month on month. Monitor's 16.2% refund rate matters because it applies to a major revenue category; Audio's 20.8% rate is the highest category rate. A rate-only ranking would understate Monitor's potential impact, while a revenue-only ranking would miss Audio.
 
 ![PixelPlay Product & Refund Analysis dashboard](images/product-refund-analysis-v2.png)
 
-### Customer Analysis
-Customer value, segmentation, loyalty tier, age band, email opt-in.
+### Markets and sales routes
 
-![PixelPlay Customer Analysis dashboard](images/customer-analysis-v2.png)
+NA (£68K) and EMEA (£38K) contributed 83% of regional revenue; the US alone contributed approximately £62K. Refund rates were higher in LATAM (20.7%) and APAC (17.9%) than in NA (14.0%) and EMEA (13.4%). Regional performance therefore needs both sales and refund measures.
 
-### Marketing & Regional Analysis
-Channels, platforms, regions, countries.
+The Direct channel generated £60K, and the Website platform generated £97K. Channel and platform are different reporting dimensions, so these figures should not be added together.
 
 ![PixelPlay Marketing & Regional Analysis dashboard](images/marketing-regional-analysis-v2.png)
 
-### Data Quality Summary
-Excluded records, matching outcomes, quality controls.
+### Trust in the reporting
+
+The data-quality view makes exclusions and matching outcomes visible. Date, price and relationship checks feed measure-specific eligibility flags. Matching SQL and DAX rules and reconciling final KPIs reduce the risk that dashboard totals diverge from the underlying analysis.
 
 ![PixelPlay Data Quality Summary dashboard](images/data-quality-summary-v2.png)
 
----
+## Recommendations
 
-## Recommendations & Business Actions
+These are proposed investigations and tests. Expected impacts are directional because the available data does not establish causes or quantify the benefit of an intervention.
 
-### 1. Product & Merchandising — prioritise high-value refund reduction
-**Finding:** Audio (**20.8%**) and Monitor (**16.2%**) exceed the **14.7%** overall refund rate, and Monitor alone contributes **30%** of revenue.
+| Priority | Recommendation and evidence | Suggested owner | Expected impact | Metric to track |
+|---|---|---|---|---|
+| 1 | Investigate Audio and Monitor refunds. Audio has the highest category rate (20.8%); Monitor combines a 16.2% rate with 30% of revenue. Examine defects, compatibility, listings and customer expectations before choosing a remedy. | Product & Merchandising, with Operations | Identify avoidable refunds and protect retained revenue, especially in Monitor. | Category refund rate; refund count and value; retained revenue |
+| 2 | Diagnose the four-month revenue decline. Break changes down by category, region, customer segment and platform to test whether the decline is broad or concentrated. | Commercial & Finance | Target action and forecasts to the segments driving the decline. | Revenue, orders, customers, AOV and revenue per customer by segment and month |
+| 3 | Improve consent-based retention reach, then test loyalty progression. Email opt-in is 50.7% and falling; Platinum has the highest AOV. Review the voluntary opt-in journey, then test suitable Gold and Silver campaigns without assuming tier movement causes higher spend. | Customer & CRM | Expand the reachable audience and measure whether campaigns increase customer value. | Email opt-in rate; campaign reach; repeat purchase and revenue per customer in test versus comparison groups |
+| 4 | Investigate regional refunds and test channel diversification. LATAM (20.7%) and APAC (17.9%) have elevated refund rates. Assess causes before scaling activity there; test Paid Search, Social and Affiliate while maintaining Direct and Website performance. | Regional Operations and Marketing & E-commerce | Reduce avoidable refunds and learn whether other channels can contribute incremental sales. | Regional refund rate and value; revenue by channel/platform; incremental sales in controlled tests |
 
-**Business impact:** Refunds are eroding retained revenue, most materially through Monitor.
+## Assumptions & Caveats
 
-**Action:** Investigate the reasons behind Audio and Monitor refunds before any corrective step. Review evidence for product defects, compatibility issues, listing clarity and customer expectations — the cause may differ by category.
+- The source data is simulated. Findings describe this dataset and are not claims about an actual retailer.
+- Orders with missing or invalid purchase dates are excluded from time-based measures. Other records are excluded only from measures affected by their quality issue.
+- Unmatched or unknown customer records have limited segmentation detail.
+- Refund records show whether a refund occurred, not why. Category and regional patterns identify investigation priorities, not root causes.
+- Product costs and margins are unavailable, so revenue and refund measures do not establish profitability.
+- Marketing spend is unavailable; customer acquisition cost and return on marketing investment cannot be calculated. Channel revenue alone does not establish marketing efficiency.
+- The analysis is observational. It supports monitoring, comparison and test design, but cannot attribute the revenue decline or show that loyalty status, channel choice or another factor caused an outcome.
 
-**Expected impact:** Reducing avoidable refunds could protect revenue, particularly across the Monitor range.
+## Tools & Technical Approach
 
-### 2. Commercial & Finance — diagnose the four-month decline
-**Finding:** Revenue has fallen for four consecutive months since the February peak.
-
-**Business impact:** A continued decline makes demand harder to read and short-term targets harder to set realistically.
-
-**Action:** Break the decline down by product category, region, customer segment and purchase platform to establish whether it is broad-based or concentrated. Use the result to separate a wider demand issue from a category or market-specific one.
-
-**Expected impact:** A clearer cause, more targeted actions and more realistic forecasts.
-
-### 3. Customer & CRM — strengthen retention reach before testing loyalty growth
-**Finding:** Platinum customers have the highest AOV, while email opt-in is only **50.7%** and falling.
-
-**Business impact:** A valuable loyalty segment exists, but the reachable audience is shrinking.
-
-**Action:** First review the voluntary opt-in journey, messaging and touchpoints to lift consent rates. Once reach improves, test tier-progression campaigns among suitable Gold and Silver customers — rather than assuming a tier move automatically raises spend.
-
-**Expected impact:** More customers reachable by retention campaigns, plus evidence on whether loyalty activity genuinely lifts customer value.
-
-### 4. Marketing & E-commerce — reduce channel reliance while monitoring refund risk
-**Finding:** Direct brings in the most channel revenue, and Website brings in the most platform revenue. LATAM (20.7%) and APAC (17.9%) have higher refund rates.
-
-**Business impact:** Sales rely heavily on Direct and Website. Higher refund rates in LATAM and APAC also reduce the revenue kept from sales in those regions.
-
-**Action:** Investigate the reasons for higher refunds in LATAM and APAC before increasing marketing activity there. Test whether Paid Search, Social and Affiliate can bring in more sales while continuing to support Direct and Website.
-
-**Expected impact:** Sales from a wider range of channels and fewer avoidable refunds.
-
-### What this analysis cannot tell you
-The dashboard supports monitoring, comparison and targeting further investigation. It cannot establish causes, assess profitability or evaluate marketing efficiency. Recommendations are therefore areas to **investigate or test**, not guaranteed outcomes.
-
-- Orders with missing or invalid purchase dates are excluded from time-based analysis.
-- Unmatched or unknown customer records carry less segmentation detail.
-- Refund data records where refunds occurred but not **why**, limiting root-cause work.
-- No product costs or margins are present — revenue performance must not be read as profitability.
-- No marketing spend data, so CAC and ROMI cannot be calculated.
-
----
-
-## The Dataset & Metrics
-
-Four core datasets covering transactional, customer, product and regional information.
-
-| Dataset | Description |
+| Tool | Use |
 |---|---|
-| **Orders** | Transaction-level data — purchase dates, product prices, shipping, refund information |
-| **Customers** | Demographics, signup information, email opt-in status |
-| **Products** | Product names, categories, pricing |
-| **Regions** | Geographic reference data for grouping customers and transactions by market |
+| Excel | Initial inspection and profiling |
+| SQL Server | Cleaning, transformation, validation and business analysis |
+| Power BI | Data model and interactive reporting |
+| DAX | KPI measures, time intelligence and dynamic calculations |
+| VS Code | Project files and documentation |
+| Git & GitHub | Version control and portfolio hosting |
 
-Original simulated source files are retained unchanged in `data/raw`. Cleaned exports are not duplicated — all cleaning, validation and modelling logic lives in `sql/` and is fully reproducible from it.
+### Cleaning, validation and modelling
 
-**Metrics measured**
+SQL scripts standardise purchase, shipping, refund and signup dates; flag shipping or refund dates before purchase; validate prices and demographic fields; standardise email opt-in and geographic/product classifications; and reconcile customer and product identifiers. Analysis flags control eligibility for revenue, trends and refund calculations. Post-cleaning checks cover invalid dates and prices, unmatched customer/product/region records, duplicate business keys, row counts and KPI reconciliation.
 
-- Revenue, orders, customers — with month-on-month change
-- **Average order value (AOV)** and revenue per customer
-- **Refund rate** — overall, by product category, by region
-- Revenue share by product category, region, country, channel and platform
-- Customer segment performance by volume and revenue
-- Average order value by loyalty tier
-- Email opt-in rate and month-on-month movement
+Explore the [data-cleaning scripts](sql/02_data_cleaning/), [data-validation script](sql/03_data_validation.sql), [star-schema scripts](sql/04_star_schema/) and [final validation](sql/06_final_validation.sql).
 
----
+### Measures and report
 
-## Methodology & Technical Stack
+The report covers revenue, orders, customers, AOV, revenue per customer, refund rate and month-on-month change. It also analyses revenue share by category, region, country, channel and platform; segment volume and revenue; loyalty-tier AOV; and email opt-in. Interactive slicers cover date, region, product category and purchase platform. DAX applies the same eligibility rules used in SQL.
 
-| Tool | Use in project |
-|---|---|
-| **Excel** | Initial data inspection and profiling |
-| **SQL Server** | Cleaning, transformation, validation, business analysis |
-| **Power BI** | Data modelling, dashboard development, interactive reporting |
-| **DAX** | KPI measures, time intelligence, dynamic calculations |
-| **VS Code** | Project file management and documentation |
-| **Git & GitHub** | Version control and portfolio hosting |
+[Download the Power BI report](PowerBI/PixelPlay_Analytics.pbix)
 
-### 1. Data cleaning and transformation
-- Standardised and validated purchase, shipping, refund and customer signup dates.
-- Identified invalid date sequences — shipments or refunds preceding the original purchase.
-- Validated product prices and blocked invalid or missing values from reaching revenue calculations.
-- Standardised email opt-in values and validated demographic fields such as age.
-- Cleaned inconsistent product, country and regional classifications.
-- Reconciled product and customer identifiers across datasets to support reliable relationships.
-- Created analysis flags governing eligibility for revenue, trend and refund calculations.
-
-Records were **retained wherever they remained valid for other analysis**. Measure-specific rules then excluded unreliable rows only from the calculations they could affect.
-→ `sql/02_data_cleaning/`
-
-### 2. Data quality and validation
-Post-cleaning checks confirmed: missing or invalid purchase dates; shipping dates before purchase; refund dates before purchase; invalid or missing prices; unmatched customer, product and regional records; duplicate business keys and row counts; revenue and date eligibility flags; and **KPI reconciliation between SQL Server and Power BI**.
-→ `sql/03_post_cleaning_validation.sql` · `sql/06_final_validation.sql`
-
-### 3. Data model — star schema
-`fact_orders` at the centre, supported by `dim_customer`, `dim_product`, `dim_region` and `dim_date`. This reduces duplication, enforces reporting consistency and supports reliable one-to-many relationships.
-
-![PixelPlay Data Model](images/data-model.png)
-→ `sql/04_star_schema/`
-
-### 4. Power BI and DAX
-- KPI reporting across revenue, orders, customers, AOV, revenue per customer and refund rate.
-- Month-on-month calculations and time-intelligence measures.
-- Interactive slicers for date, region, product category and purchase platform.
-- Customer and product segmentation to surface revenue drivers.
-- Conditional formatting to flag performance changes.
-- **Consistent DAX eligibility logic**, matching the SQL rules, so only appropriate transactions reach each measure.
-
-→ [Download the Power BI report](PowerBI/PixelPlay_Analytics.pbix)
-
-### Repository structure
+## Repository Structure
 
 ```text
 PixelPlay-Analytics/
