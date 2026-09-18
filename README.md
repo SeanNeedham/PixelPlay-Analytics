@@ -6,11 +6,11 @@ An end-to-end retail analytics project that turns fragmented, unreliable source 
 
 ## Project Background
 
-PixelPlay is a simulated gaming hardware retailer selling across international markets. Its orders, customers, products and regional reference data were stored separately and contained inconsistent identifiers, missing values, invalid dates and classification errors. Commercial and operations stakeholders needed a dependable view of sales performance, customer value and refund exposure before deciding where to investigate or act.
+PixelPlay is a gaming hardware retailer selling across international markets. Its orders, customers, products and regional reference data were stored separately and contained inconsistent identifiers, missing values, invalid dates and classification errors. Commercial and operations stakeholders needed a dependable view of sales performance, customer value and refund exposure before deciding where to investigate or act.
 
 Intended stakeholders: Commercial and sales leaders, product and merchandising teams, customer/CRM teams, and regional operations managers.
 
-Decision context: Understand the sustained revenue decline, identify where sales and refunds are concentrated, and prioritise investigations and measurable tests. Revenue is the primary performance measure; orders, customers, average order value (AOV), revenue per customer, refund rate and email opt-in provide context.
+Decision context: Understand the sustained revenue decline, identify where sales and refunds are concentrated, and prioritise investigations and measurable tests. Revenue is the primary performance measure; orders, customers, average order value (AOV), revenue per customer and refund rate provide context.
 
 ## Business Questions
 
@@ -22,7 +22,7 @@ Decision context: Understand the sustained revenue decline, identify where sales
 
 ## Data Structure & Initial Checks
 
-The project uses four simulated source datasets. Original files are retained unchanged in `data/raw`; cleaning and modelling logic is reproducible from `sql/` rather than duplicated as cleaned exports.
+The project uses four source datasets. Original files are retained unchanged in `data/raw`; cleaning and modelling logic is reproducible from `sql/` rather than duplicated as cleaned exports.
 
 | Dataset | Role |
 |---|---|
