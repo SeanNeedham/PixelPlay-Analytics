@@ -37,9 +37,9 @@ The reporting model centres on `fact_orders`, with `dim_customer`, `dim_product`
 
 ## Executive Summary
 
-- Performance: Revenue peaked in February and declined for four consecutive months through June. June revenue was £127.3K, down 13.1% month on month; orders fell 9.6%, customers 8.5%, and AOV 4.3% to £199.92. The simultaneous declines in volume and order value warrant a breakdown by category, region and customer segment.
-- Refund exposure: The overall refund rate rose 1.27 percentage points to 14.7% in June. Monitor generated 30% of revenue with a 16.2% refund rate, while Audio had the highest category refund rate at 20.8%. Both deserve investigation for different reasons.
-- Concentration: Console (51%) and Monitor (30%) generated 81% of June revenue. NA and EMEA generated 83% of regional revenue. Changes in a small number of categories and markets therefore matter greatly.
+- Sales fell for four consecutive months after February. June revenue was £127.3K, down 13.1% from May. Fewer customers bought, and the average order was smaller, so the commercial team should find out which products and markets account for the decline.
+- Refunds increased. The June refund rate reached 14.7%, up 1.27 percentage points. Monitor warrants attention because it brings in 30% of revenue but has a 16.2% refund rate; Audio has the highest category refund rate at 20.8%.
+- Sales depend heavily on a small number of products and markets. Console and Monitor generated 81% of June revenue, while NA and EMEA generated 83% of regional revenue. A setback in either group could have a large effect on overall results.
 
 ## Insights Deep Dive
 
@@ -75,14 +75,14 @@ The data-quality view makes exclusions and matching outcomes visible. Date, pric
 
 ## Recommendations
 
-These are proposed investigations and tests. Expected impacts are directional because the available data does not establish causes or quantify the benefit of an intervention.
+These are proposed investigations and tests. The data shows where to look, but the benefit of any action has not yet been measured.
 
-| Priority | Recommendation and evidence | Suggested owner | Expected impact | Metric to track |
+| Priority | What to do | Suggested owner | Intended result | What to check |
 |---|---|---|---|---|
-| 1 | Investigate Audio and Monitor refunds. Audio has the highest category rate (20.8%); Monitor combines a 16.2% rate with 30% of revenue. Examine defects, compatibility, listings and customer expectations before choosing a remedy. | Product & Merchandising, with Operations | Identify avoidable refunds and protect retained revenue, especially in Monitor. | Category refund rate; refund count and value; retained revenue |
-| 2 | Diagnose the four-month revenue decline. Break changes down by category, region, customer segment and platform to test whether the decline is broad or concentrated. | Commercial & Finance | Target action and forecasts to the segments driving the decline. | Revenue, orders, customers, AOV and revenue per customer by segment and month |
-| 3 | Improve consent-based retention reach, then test loyalty progression. Email opt-in is 50.7% and falling; Platinum has the highest AOV. Review the voluntary opt-in journey, then test suitable Gold and Silver campaigns without assuming tier movement causes higher spend. | Customer & CRM | Expand the reachable audience and measure whether campaigns increase customer value. | Email opt-in rate; campaign reach; repeat purchase and revenue per customer in test versus comparison groups |
-| 4 | Investigate regional refunds and test channel diversification. LATAM (20.7%) and APAC (17.9%) have elevated refund rates. Assess causes before scaling activity there; test Paid Search, Social and Affiliate while maintaining Direct and Website performance. | Regional Operations and Marketing & E-commerce | Reduce avoidable refunds and learn whether other channels can contribute incremental sales. | Regional refund rate and value; revenue by channel/platform; incremental sales in controlled tests |
+| 1 | Find out why customers return Audio and Monitor products. Audio has the highest refund rate (20.8%); Monitor has a 16.2% rate and supplies 30% of revenue. Review defects, compatibility, product descriptions and customer feedback before changing anything. | Product & Merchandising, with Operations | Identify refunds that could be prevented, especially in the larger Monitor business. | Number, value and rate of refunds by category; sales kept after refunds |
+| 2 | Find where the four-month sales decline is coming from. Compare products, markets, customer groups and purchase platforms before deciding on a response. | Commercial & Finance | Direct attention to the parts of the business driving the decline. | Monthly sales, orders, customer numbers and spend per order for each group |
+| 3 | Make voluntary email sign-up clearer, then test whether relevant messages bring customers back. Opt-in is 50.7% and falling. Platinum customers spend more per order, but moving someone into a loyalty tier may not change their behaviour. | Customer & CRM | Reach more consenting customers and learn whether retention activity raises customer value. | Opt-in, campaign reach, repeat purchases and spend per customer, compared with a similar group that did not receive the campaign |
+| 4 | Find out why refunds are higher in LATAM (20.7%) and APAC (17.9%) before increasing promotion there. Test whether Paid Search, Social and Affiliate add sales while continuing to support Direct and Website. | Regional Operations and Marketing & E-commerce | Reduce preventable returns and learn whether other sales routes can contribute. | Refunds by region; sales by channel and platform; additional sales from controlled tests |
 
 ## Assumptions & Caveats
 
@@ -109,7 +109,7 @@ These are proposed investigations and tests. Expected impacts are directional be
 
 SQL scripts standardise purchase, shipping, refund and signup dates; flag shipping or refund dates before purchase; validate prices and demographic fields; standardise email opt-in and geographic/product classifications; and reconcile customer and product identifiers. Analysis flags control eligibility for revenue, trends and refund calculations. Post-cleaning checks cover invalid dates and prices, unmatched customer/product/region records, duplicate business keys, row counts and KPI reconciliation.
 
-Explore the [data-cleaning scripts](sql/02_data_cleaning/), [data-validation script](sql/03_data_validation.sql), [star-schema scripts](sql/04_star_schema/) and [final validation](sql/06_final_validation.sql).
+Explore the [data-cleaning scripts](sql/02_data_cleaning/), [post-cleaning validation script](sql/03_post_cleaning_validation.sql), [star-schema scripts](sql/04_star_schema/) and [final validation](sql/06_final_validation.sql).
 
 ### Measures and report
 
@@ -132,7 +132,7 @@ PixelPlay-Analytics/
 │       └── region.csv
 ├── sql/
 │   ├── 01_data_profiling.sql
-│   ├── 03_data_validation.sql
+│   ├── 03_post_cleaning_validation.sql
 │   ├── 05_business_analysis.sql
 │   ├── 06_final_validation.sql
 │   ├── 02_data_cleaning/
